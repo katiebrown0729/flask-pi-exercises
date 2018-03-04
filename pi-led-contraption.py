@@ -58,3 +58,8 @@ if __name__ == "__main__":
     thingy.led_on(99)
     # Testing turning LEDs off
     thingy.led_off(0)
+    # Test visible on Raspberry Pi
+    thingy.led_on(0)
+    thingy.led_on(1)
+    thingy.led_on(2)
+    thingy.led_off(1)
