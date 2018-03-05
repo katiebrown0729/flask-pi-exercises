@@ -10,7 +10,7 @@ Your class should also include tests when the file is run by itself using the if
 
 Katie Brown March 4, 2018"""
 
-from gpiozero import LED
+#from gpiozero import LED
 #from time import sleep
 
 # Naming convention is the CamelCase version of file name
@@ -21,7 +21,7 @@ class PiLedContraption:
     def __init__(self):
         print("Initializing...")
         # Setup LEDs
-        self._valid_leds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        self._valid_leds = [18, 19, 20, 21, 22]
         for i in self._valid_leds:
             # LED(i) is the pin number
             self._physical_leds.append(LED(i))
@@ -53,11 +53,12 @@ if __name__ == "__main__":
     print(type(thingy))
     # Testing turning LEDs on
     thingy.led_on(0)
-    print("After turning LED on")
+    print("Test LED on")
     # Testing LED number validation
     thingy.led_on(99)
     # Testing turning LEDs off
     thingy.led_off(0)
+    print("Test LED off")
     # Test visible on Raspberry Pi
     thingy.led_on(0)
     thingy.led_on(1)
