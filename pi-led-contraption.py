@@ -10,8 +10,8 @@ Your class should also include tests when the file is run by itself using the if
 
 Katie Brown March 4, 2018"""
 
-#from gpiozero import LED
-#from time import sleep
+from gpiozero import LED
+from time import sleep
 
 # Naming convention is the CamelCase version of file name
 class PiLedContraption:
@@ -26,27 +26,39 @@ class PiLedContraption:
         for i in self._valid_leds:
             # LED(i) is the pin number
             self._physical_leds.append(LED(i))
+            #self._physical_leds.append(i)
 
 # Individual LED on
     def led_on(self, led_number):
-        if led_number not in self._valid_leds:
+        if 0 <= led_number > 5:
             print("Invalid LED number {}".format(led_number))
         else:
             print("LED {} is on".format(led_number))
             self._physical_leds[led_number].on()
+            #self._physical_leds[led_number] = 1
+
 
 # Individual LED off
     def led_off(self, led_number):
-        if led_number not in self._valid_leds:
+        if 0 <= led_number > 5:
             print("Invalid LED number {}".format(led_number))
         else:
             print("LED {} is off".format(led_number))
             self._physical_leds[led_number].off()
+            #self._physical_leds[led_number] = 0
+
 
 
 
         print("led {} on".format(led_number))
 
+
+
+if __name__ == "__main__":
+
+    # Testing the initialization
+    thingy = PiLedContraption()
+    print(type(thingy))
 
     # Testing turning LEDs on
     thingy.led_on(0)
@@ -56,10 +68,8 @@ class PiLedContraption:
     # Testing turning LEDs off
     thingy.led_off(0)
     print("Test LED off")# Test function
-if __name__ == "__main__":
-    # Testing the initialization
-    thingy = PiLedContraption()
-    print(type(thingy))
+
+
     # Test visible on Raspberry Pi
     thingy.led_on(0)
     thingy.led_on(1)
