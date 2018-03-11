@@ -46,11 +46,7 @@ class PiLedContraption:
 
         print("led {} on".format(led_number))
 
-# Test function
-if __name__ == "__main__":
-    # Testing the initialization
-    thingy = PiLedContraption()
-    print(type(thingy))
+
     # Testing turning LEDs on
     thingy.led_on(0)
     print("Test LED on")
@@ -58,7 +54,11 @@ if __name__ == "__main__":
     thingy.led_on(99)
     # Testing turning LEDs off
     thingy.led_off(0)
-    print("Test LED off")
+    print("Test LED off")# Test function
+if __name__ == "__main__":
+    # Testing the initialization
+    thingy = PiLedContraption()
+    print(type(thingy))
     # Test visible on Raspberry Pi
     thingy.led_on(0)
     thingy.led_on(1)
