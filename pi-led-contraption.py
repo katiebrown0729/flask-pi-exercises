@@ -15,6 +15,7 @@ Katie Brown March 4, 2018"""
 
 # Naming convention is the CamelCase version of file name
 class PiLedContraption:
+    _led = []
     _valid_leds = []
     _physical_leds = []
 
