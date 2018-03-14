@@ -4,18 +4,18 @@ from time import sleep
 led=[]
 sleeptime=.1
 
-for i in range(0,5):
-    led.append(LED(i+2))
+for i in range(18,22):
+    led.append(LED(i+17))
 
 while True:
-    for i in range(0,5):
+    for i in range(18,22):
         print("{} on".format(i))
         led[i].on()
         sleep(sleeptime)
         print("  off")
         led[i].off()
         sleep(sleeptime)
-    for i in range(4,-1,-1):
+    for i in range(21,17,-1):
         print("{} on".format(i))
         led[i].on()
         sleep(sleeptime)
