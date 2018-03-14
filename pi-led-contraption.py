@@ -16,6 +16,7 @@ st = 0.5
 
 from gpiozero import LED
 from time import sleep
+import random
 
 # Naming convention is the CamelCase version of file name
 class PiLedContraption:
@@ -66,7 +67,16 @@ class PiLedContraption:
             self.led_on(i)
             sleep(st)
             self.led_off(i)
-
+# Dance!
+    def dance(self):
+        random.seed()
+        for i in range (0,20):
+            r = random.randint(0,4)
+            self.led_on(r)
+            sleep(st)
+            self.led_off(r)
+            sleep(st)
+        
 if __name__ == "__main__":
 
     # Testing the initialization
@@ -92,6 +102,9 @@ if __name__ == "__main__":
     test.race_up()
     print("Testing race up")
     sleep(st)
+    # Testing dance
+    test.dance()
+    print("I'm dancing!")
     
 """
     # Test individual LEDs on Raspberry Pi
