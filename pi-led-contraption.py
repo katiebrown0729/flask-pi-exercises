@@ -10,6 +10,10 @@ Your class should also include tests when the file is run by itself using the if
 
 Katie Brown March 4, 2018"""
 
+
+# Define a sleeptime
+st = 0.5
+
 from gpiozero import LED
 from time import sleep
 
@@ -48,12 +52,6 @@ class PiLedContraption:
             #self._physical_leds[led_number] = 0
 
 
-
-
-        print("led {} on".format(led_number))
-
-
-
 if __name__ == "__main__":
 
     # Testing the initialization
@@ -62,16 +60,22 @@ if __name__ == "__main__":
 
     # Testing turning LEDs on
     thingy.led_on(0)
+    sleep(st)
     print("Test LED on")
     # Testing LED number validation
     thingy.led_on(99)
+    sleep(st)
     # Testing turning LEDs off
     thingy.led_off(0)
+    sleep(st)
     print("Test LED off")# Test function
-
 
     # Test visible on Raspberry Pi
     thingy.led_on(0)
+    sleep(st)
     thingy.led_on(1)
+    sleep(st)
     thingy.led_on(2)
+    sleep(st)
     thingy.led_off(1)
+    sleep(st)
