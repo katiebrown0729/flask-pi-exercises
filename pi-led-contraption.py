@@ -22,7 +22,8 @@ class PiLedContraption:
     _led = []
     _valid_leds = []
     _physical_leds = []
-
+    _led_index = []
+    
     def __init__(self):
         print("Initializing...")
         # Setup LEDs
@@ -31,6 +32,7 @@ class PiLedContraption:
             # LED(i) is the pin number
             self._physical_leds.append(LED(i))
             #self._physical_leds.append(i)
+        self._led_index =  [0, 1, 2, 3, 4]        
 
 # Individual LED on
     def led_on(self, led_number):
@@ -50,26 +52,33 @@ class PiLedContraption:
             print("LED {} is off".format(led_number))
             self._physical_leds[led_number].off()
             #self._physical_leds[led_number] = 0
+            
+# LED race up
 
 
 if __name__ == "__main__":
 
     # Testing the initialization
-    thingy = PiLedContraption()
-    print(type(thingy))
+    test = PiLedContraption()
+    print(type(test))
 
     # Testing turning LEDs on
-    thingy.led_on(0)
+    test.led_on(0)
     sleep(st)
     print("Test LED on")
     # Testing LED number validation
-    thingy.led_on(99)
+    test.led_on(99)
     sleep(st)
     # Testing turning LEDs off
-    thingy.led_off(0)
+    test.led_off(0)
     sleep(st)
-    print("Test LED off")# Test function
-
+    print("Test LED off")
+    # Testing LED race up
+    #test.race_up()
+    print("Testing race up")
+    sleep(st)
+    
+"""
     # Test visible on Raspberry Pi
     thingy.led_on(0)
     sleep(st)
@@ -77,5 +86,10 @@ if __name__ == "__main__":
     sleep(st)
     thingy.led_on(2)
     sleep(st)
+    thingy.led_off(0)
+    sleep(st)
     thingy.led_off(1)
     sleep(st)
+    thingy.led_off(2)
+    sleep(st)
+    """
