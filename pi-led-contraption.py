@@ -53,8 +53,19 @@ class PiLedContraption:
             self._physical_leds[led_number].off()
             #self._physical_leds[led_number] = 0
             
+# LED race down
+    def race_down(self):
+        for i in self._led_index:
+            self.led_on(i)
+            sleep(st)
+            self.led_off(i)
+        
 # LED race up
-
+    def race_up(self):
+        for i in reversed(self._led_index):
+            self.led_on(i)
+            sleep(st)
+            self.led_off(i)
 
 if __name__ == "__main__":
 
@@ -73,23 +84,27 @@ if __name__ == "__main__":
     test.led_off(0)
     sleep(st)
     print("Test LED off")
+    # Testing LED race down
+    test.race_down()
+    print("Testing race down")
+    sleep(st)
     # Testing LED race up
-    #test.race_up()
+    test.race_up()
     print("Testing race up")
     sleep(st)
     
 """
-    # Test visible on Raspberry Pi
-    thingy.led_on(0)
+    # Test individual LEDs on Raspberry Pi
+    test.led_on(0)
     sleep(st)
-    thingy.led_on(1)
+    test.led_on(1)
     sleep(st)
-    thingy.led_on(2)
+    test.led_on(2)
     sleep(st)
-    thingy.led_off(0)
+    test.led_off(0)
     sleep(st)
-    thingy.led_off(1)
+    test.led_off(1)
     sleep(st)
-    thingy.led_off(2)
+    test.led_off(2)
     sleep(st)
     """
