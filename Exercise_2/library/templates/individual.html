@@ -1,0 +1,41 @@
+<!-- Individual has a menu to get to other pages and a text box with radio buttons to allow user to control individual LEDs --->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+}
+</style>
+</head>
+
+
+<ul>
+  <li><a href="index.html">Index</a></li>
+  <li><a href="individual.html">Indvidual</a></li>
+  <li><a href="group.html">Group</a></li>
+  <li><a href="pattern.html">Pattern</a></li>
+</ul>
+
+<form>
+  <input type="radio" name="led_number" value="LED 0" > LED 0<br>
+  <input type="radio" name="led_number" value="LED 1" > LED 1<br>
+  <input type="radio" name="led_number" value="LED 2" > LED 2<br>
+  <input type="radio" name="led_number" value="LED 3" > LED 3<br>
+  <input type="radio" name="led_number" value="LED 4" > LED 4<br>
+</form> <br>
+<input type="submit" value="Submit">
+</body>
+
+</html>
