@@ -16,13 +16,15 @@ st = 0.5
 
 from gpiozero import LED
 from time import sleep
+import random
 
 # Naming convention is the CamelCase version of file name
 class PiLedContraption:
     _led = []
     _valid_leds = []
     _physical_leds = []
-
+    _led_index = []
+    
     def __init__(self):
         print("Initializing...")
         # Setup LEDs
@@ -31,6 +33,7 @@ class PiLedContraption:
             # LED(i) is the pin number
             self._physical_leds.append(LED(i))
             #self._physical_leds.append(i)
+        self._led_index =  [0, 1, 2, 3, 4]        
 
 # Individual LED on
     def led_on(self, led_number):
@@ -50,32 +53,71 @@ class PiLedContraption:
             print("LED {} is off".format(led_number))
             self._physical_leds[led_number].off()
             #self._physical_leds[led_number] = 0
-
-
+            
+# LED race down
+    def race_down(self):
+        for i in self._led_index:
+            self.led_on(i)
+            sleep(st)
+            self.led_off(i)
+        
+# LED race up
+    def race_up(self):
+        for i in reversed(self._led_index):
+            self.led_on(i)
+            sleep(st)
+            self.led_off(i)
+# Dance!
+    def dance(self):
+        random.seed()
+        for i in range (0,20):
+            r = random.randint(0,4)
+            self.led_on(r)
+            sleep(st)
+            self.led_off(r)
+            sleep(st)
+        
 if __name__ == "__main__":
 
     # Testing the initialization
-    thingy = PiLedContraption()
-    print(type(thingy))
+    test = PiLedContraption()
+    print(type(test))
 
     # Testing turning LEDs on
-    thingy.led_on(0)
+    test.led_on(0)
     sleep(st)
     print("Test LED on")
     # Testing LED number validation
-    thingy.led_on(99)
+    test.led_on(99)
     sleep(st)
     # Testing turning LEDs off
-    thingy.led_off(0)
+    test.led_off(0)
     sleep(st)
-    print("Test LED off")# Test function
-
-    # Test visible on Raspberry Pi
-    thingy.led_on(0)
+    print("Test LED off")
+    # Testing LED race down
+    test.race_down()
+    print("Testing race down")
     sleep(st)
-    thingy.led_on(1)
+    # Testing LED race up
+    test.race_up()
+    print("Testing race up")
     sleep(st)
-    thingy.led_on(2)
+    # Testing dance
+    test.dance()
+    print("I'm dancing!")
+    
+"""
+    # Test individual LEDs on Raspberry Pi
+    test.led_on(0)
     sleep(st)
-    thingy.led_off(1)
+    test.led_on(1)
     sleep(st)
+    test.led_on(2)
+    sleep(st)
+    test.led_off(0)
+    sleep(st)
+    test.led_off(1)
+    sleep(st)
+    test.led_off(2)
+    sleep(st)
+    """
