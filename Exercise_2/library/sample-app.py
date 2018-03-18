@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request
-from library import textanalytics as ta
+
 
 app = Flask(__name__)
 
 
 @app.route('/test')
 def mainpage():
-    name = 'Matie'
+    name = 'Katie'
     return render_template('index.html', name=name)
 
 """

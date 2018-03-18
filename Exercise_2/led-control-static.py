@@ -1,6 +1,6 @@
 import os
 
-from library.hello_world import app
+from library.sample-app import app
 
 
 if __name__ == '__main__':
