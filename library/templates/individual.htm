@@ -39,21 +39,23 @@ li a:hover {
 
 
 <ul>
-  <li><a href="index.html">Index</a></li>
-  <li><a href="individual.html">Indvidual</a></li>
-  <li><a href="group.html">Group</a></li>
-  <li><a href="patterns.html">Pattern</a></li>
+  <li><a href="index.htm">Home</a></li>
+  <li><a href="individual.htm">Indvidual</a></li>
+  <li><a href="group.htm">Group</a></li>
+  <li><a href="patterns.htm">Pattern</a></li>
 </ul>
 <br>
 
-<form>
-  <input type="radio" name="led_number" value="LED 0" > LED 0<br>
-  <input type="radio" name="led_number" value="LED 1" > LED 1<br>
-  <input type="radio" name="led_number" value="LED 2" > LED 2<br>
-  <input type="radio" name="led_number" value="LED 3" > LED 3<br>
-  <input type="radio" name="led_number" value="LED 4" > LED 4<br>
-</form> <br>
-<input type="submit" value="Submit">
+<main-content class="main">
+   <form action="individual.htm" method="post">
+	 LED Number:  <input type="text" name="led-number">
+	 <input type="radio" name="led-state" value="on">On
+	 <input type="radio" name="led-state" value="off" checked>Off
+	 </br><br>
+	 <input class="button" type="submit" name="submit" value="Submit">
+	</form>
+</main-content>
+
 </body>
 
 </html>

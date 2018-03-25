@@ -4,8 +4,24 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def mainpage():
-    return render_template('index.html')
+def index():
+    return render_template('index.htm')
+
+@app.route('/index.htm')
+def index_2():
+    return render_template('index.htm')
+
+@app.route('/individual.htm')
+def individual():
+    return render_template('individual.htm')
+
+@app.route('/group.htm')
+def group():
+    return render_template('group.htm')
+
+@app.route('/patterns.htm')
+def patterns():
+    return render_template('patterns.htm')
 
 
 # @app.route('/', methods=['POST', 'GET'])
