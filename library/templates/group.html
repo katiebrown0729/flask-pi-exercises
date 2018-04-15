@@ -1,4 +1,4 @@
-<!-- Group has a menu and a bunch of radio buttons to allow a user to choose LEDs to turn on or off at the same time --->
+<!-- Group has a menu and a bunch of radio radios to allow a user to choose LEDs to turn on or off at the same time --->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,29 +20,31 @@
   <li><a href="patterns.html">Pattern</a></li>
 </ul>
 <br>
+
+<form action="group.html" method="post">
 LED #0
-<button type="button">On</button>
-<button type="button">Off</button>
+<input type="radio" name = "led0-state" value = "on" >On</input>
+<input type="radio" name = "led0-state" value = "off" checked >Off</input>
 <br>
 LED #1
-<button type="button">On</button>
-<button type="button">Off</button>
+<input type="radio" name = "led1-state" value = "on">On</input>
+<input type="radio" name = "led1-state" value = "off" checked>Off</input>
 <br>
 LED #2
-<button type="button">On</button>
-<button type="button">Off</button>
+<input type="radio" name = "led2-state" value = "on">On</input>
+<input type="radio" name = "led2-state" value = "off" checked>Off</input>
 <br>
 LED #3
-<button type="button">On</button>
-<button type="button">Off</button>
+<input type="radio" name = "led3-state" value = "on">On</input>
+<input type="radio" name = "led3-state" value = "off" checked>Off</input>
 <br>
 LED #4
-<button type="button">On</button>
-<button type="button">Off</button>
+<input type="radio" name = "led4-state" value = "on">On</input>
+<input type="radio" name = "led4-state" value = "off" checked>Off</input>
 <br>
 <br>
-<input type="submit" value="Submit">
-
+<input type="submit" name="submit" value="Submit">
+</form>
 
 </body>
 </html>

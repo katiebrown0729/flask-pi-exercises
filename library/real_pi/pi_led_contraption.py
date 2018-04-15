@@ -14,7 +14,7 @@ Katie Brown March 4, 2018"""
 # Define a sleeptime
 st = 0.5
 
-#from gpiozero import LED
+from gpiozero import LED
 from time import sleep
 import random
 
@@ -31,8 +31,7 @@ class PiLedContraption:
         self._valid_leds = [18, 19, 20, 21, 22]
         for i in self._valid_leds:
             # LED(i) is the pin number
-            #self._physical_leds.append(LED(i))
-            self._physical_leds.append(i)
+            self._physical_leds.append(LED(i))
         self._led_index =  [0, 1, 2, 3, 4]        
 
 # Individual LED on
@@ -41,9 +40,7 @@ class PiLedContraption:
             print("Invalid LED number {}".format(led_number))
         else:
             print("LED {} is on".format(led_number))
-            #self._physical_leds[led_number].on()
-            self._physical_leds[led_number] = "ON"
-
+            self._physical_leds[led_number].on()
 
 # Individual LED off
     def led_off(self, led_number):
@@ -51,8 +48,7 @@ class PiLedContraption:
             print("Invalid LED number {}".format(led_number))
         else:
             print("LED {} is off".format(led_number))
-            #self._physical_leds[led_number].off()
-            self._physical_leds[led_number] = 0
+            self._physical_leds[led_number].off()
             
 # LED race down
     def race_down(self):
