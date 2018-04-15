@@ -51,7 +51,7 @@ class PiLedContraption:
             print("Invalid LED number {}".format(led_number))
         else:
             print("LED {} is off".format(led_number))
-            #self._physical_leds[led_number].off()
+            self._physical_leds[led_number].off()
             self._physical_leds[led_number] = 0
             
 # LED race down
